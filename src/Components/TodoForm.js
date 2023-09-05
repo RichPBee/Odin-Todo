@@ -70,30 +70,35 @@ const buildFormInputs = () => {
         id: 'todo-title-input',
         class: 'todo-form-input',
         type: 'text',
+        placeholder: 'Title*: '
     })
 
     const descInput = buildElement('input', {
         id: 'todo-desc-input',
         class: 'todo-form-input',
         type: 'text',
+        placeholder: 'Description*: '
     })
 
     const dateInput = buildElement('input', {
         id: 'todo-date-input',
         class: 'todo-form-input',
         type: 'text',
+        placeholder: 'Due Date*: '
     })
 
     const notesInput = buildElement('input', {
         id: 'todo-notes-input',
         class: 'todo-form-input',
         type: 'text',
+        placeholder: 'Notes: '
     })
 
     const projectInput = buildElement('input', {
         id: 'todo-project-input',
         class: 'todo-form-input',
         type: 'text',
+        placeholder: 'Project: '
     })
 
     return (

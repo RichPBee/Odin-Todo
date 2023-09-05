@@ -129,4 +129,4 @@ const buildTodoSection = () => {
     return structurise(structArray);
 }
 
-export {buildTodoSection}
+export {buildTodoSection, buildTodoComponent}

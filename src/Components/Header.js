@@ -52,7 +52,7 @@ const buildSearchSortSection = () => {
 
     const selectProjectButton = buildButton({
         id: "select-project-btn"
-    }, `Project: `);   
+    }, `Project: All`);   
 
     return (
         [searchSortSection,

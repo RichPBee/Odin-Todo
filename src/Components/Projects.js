@@ -1,14 +1,21 @@
 import { projectsArray } from "../Data/Projects";
+import { sortTodoByProject, todoArray } from "../Data/Todos";
 import { buildElement } from "../Renderer/ElementBuilder";
-import { structurise } from "../Renderer/Renderer";
+import { structurise, updateSection } from "../Renderer/Renderer";
 import { buildButton } from "./Button";
+import { buildTodoComponent } from "./Todo";
 
 const createAllTab = () => { 
     const tab = buildButton({
         id: 'all-tab-btn',
         class: 'tab-btn'
     }, 'All', () => { 
-        console.log('all-tab-btn');
+        const allTodos = todoArray;
+        const components = [];
+        allTodos.forEach((todo) => {
+            components.push(buildTodoComponent(todo))
+        });
+        updateSection('todo-section', components);
     });
 
     return tab
@@ -19,7 +26,12 @@ const createProjectTab = (projectObj) => {
         id: `${projectObj.name}-tab-btn`,
         class: 'tab-btn'
     }, `${projectObj.name}`, () => { 
-        console.log(`${projectObj.name}-tab-btn`);
+        const sortedTodos = sortTodoByProject(projectObj.name);
+        const components = [];
+        sortedTodos.forEach((todo) => { 
+            components.push(buildTodoComponent(todo));
+        });
+        updateSection('todo-section', components);
     })
 
     return tab
@@ -39,4 +51,4 @@ const buildProjectsSection = () => {
     return structurise(structArray)
 }
 
-export {buildProjectsSection}
+export {buildProjectsSection, createProjectTab}

@@ -1,4 +1,15 @@
+import { createProjectTab } from "../Components/Projects";
+import { createNewProject, getProjectNames, projectsArray } from "./Projects";
+
 const todoArray = [];
+
+const checkProjectName = (todoProj) => { 
+    const projectNames = getProjectNames();
+    if (!projectNames.includes(todoProj)) {
+        createNewProject(todoProj);
+        createProjectTab(projectsArray[projectsArray.length - 1]);
+    }
+}
 
 const sortTodoArray = () => {
     let asccending = true;
@@ -30,6 +41,14 @@ const resetTodoIds = () => {
         todo.todoId = i;
     })
     return todoArray;
+}
+
+const sortTodoByProject = (projectName) => { 
+    const sortedTodos = [];
+    todoArray.forEach((todo) => { 
+        if (todo.project === projectName) {sortedTodos.push(todo)};
+    });
+    return sortedTodos;
 }
 
 const findCompleteTodos = () => { 
@@ -66,7 +85,8 @@ const createTodoObj = (
     };
     todoArray.push(todoObj);
     todoObj.todoId = (todoArray.length - 1);
+    checkProjectName(todoObj.project);
     return todoObj;
 };
 
-export {createTodoObj, findCompleteTodos, todoArray};
+export {createTodoObj, findCompleteTodos, sortTodoByProject, todoArray};

@@ -69,24 +69,28 @@ const buildFormInputs = () => {
         id: 'project-title-input',
         class: 'project-form-input',
         type: 'text',
+        placeholder: 'Title*: '
     })
 
     const descInput = buildElement('input', {
         id: 'project-desc-input',
         class: 'project-form-input',
         type: 'text',
+        placeholder: 'Description: '
     })
 
     const dateInput = buildElement('input', {
         id: 'project-date-input',
         class: 'project-form-input',
         type: 'text',
+        placeholder: 'End Date: '
     })
 
     const notesInput = buildElement('input', {
         id: 'project-notes-input',
         class: 'project-form-input',
         type: 'text',
+        placeholder: 'Notes: '
     })
 
     return (

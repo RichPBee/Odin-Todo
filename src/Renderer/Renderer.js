@@ -1,3 +1,5 @@
+import { buildTodoComponent } from "../Components/Todo";
+
 const structurise = (componentArray) => { 
     const parentElement = componentArray[0];
     componentArray.forEach((component, i) => {
@@ -35,6 +37,14 @@ const removeElement = (eleId) => {
     ele.parentNode.removeChild(ele);
 }
 
+const updateSection = (parentId, newSection) => { 
+    if (document.getElementById(parentId)) {
+        const parentEle = document.getElementById(parentId);
+        parentEle.innerHTML = '';
+        structurise([parentEle].concat(newSection))
+    }
+}
+
 const restoreSection = (section, prevState) => {
     section.innerHTML = '';
     if (Array.isArray(prevState)) {
@@ -47,4 +57,4 @@ const restoreSection = (section, prevState) => {
     }
 }
 
-export {appendSections, structurise, clearSection, removeElement};
+export {appendSections, structurise, clearSection, removeElement, updateSection};

@@ -1,9 +1,13 @@
 const projectsArray = [];
 
+const getProjectNames = () => { 
+    return projectsArray.map((project) => project.name);
+}
+
 const createNewProject = (
     name, 
-    desc, 
-    endDate, 
+    desc = '', 
+    endDate = '', 
 //    priority, 
     notes = "",
     id = 0,
@@ -24,4 +28,4 @@ const createNewProject = (
     return projectObj;
 };
 
-export {createNewProject, projectsArray};
+export {createNewProject, getProjectNames, projectsArray};
