@@ -1,0 +1,16 @@
+[header,
+    [searchSortSection, 
+        [searchBarContainer, 
+            searchBar],
+        [sortButtonSection, 
+            sortButton,
+            selectProject
+        ]
+    ],
+    [buttonSection,
+        addTodo,
+        deleteCompleted,
+        createProject,
+        manageProjects,
+    ]
+]
